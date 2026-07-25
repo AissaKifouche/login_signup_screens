@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_signup/login_screens/login_screen1.dart';
+import 'package:login_signup/login_screens/login_screen10.dart';
 import 'package:login_signup/login_screens/login_screen2.dart';
 import 'package:login_signup/login_screens/login_screen7.dart';
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //home: LoginScreen1(),
       //home: LoginScreen2(),
-      home: LoginScreen7(),
+      //home: LoginScreen7(),
+      home: LoginScreen10(),
     );
   }
 }
