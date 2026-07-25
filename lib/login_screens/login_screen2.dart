@@ -26,6 +26,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
   }
 
 
+  //the submit function
   void _submitForm(){
     if(_formKey.currentState!.validate()){
       ScaffoldMessenger.of(context).showSnackBar(
