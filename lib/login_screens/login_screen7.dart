@@ -14,7 +14,7 @@ class LoginScreen7 extends StatefulWidget {
 
 class _LoginScreen7State extends State<LoginScreen7> {
 
-  final _formKey = GlobalKey<FormState>();
+
   int isSelectedIndex = 0;
 
   final _emailController = TextEditingController();
@@ -31,7 +31,7 @@ class _LoginScreen7State extends State<LoginScreen7> {
     super.dispose();
   }
 
-
+  final _formKey = GlobalKey<FormState>();
   void _submitForm(){
     if(_formKey.currentState!.validate()){
       ScaffoldMessenger.of(context).showSnackBar(

@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //home: LoginScreen1(),
+      home: LoginScreen1(),
       //home: LoginScreen2(),
       //home: LoginScreen7(),
-      home: LoginScreen10(),
+      //home: LoginScreen10(),
     );
   }
 }

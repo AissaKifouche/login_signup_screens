@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:login_signup/Signup_screens/signup_screen1.dart';
 
 class LoginScreen1 extends StatefulWidget {
   const LoginScreen1({super.key});
@@ -302,7 +303,12 @@ class _LoginScreen1State extends State<LoginScreen1> {
 
                     TextButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupScreen1(),
+                          ),
+                        );
                       },
                       child: Text(
                         "Sign Up",
