@@ -50,6 +50,67 @@ class FunctionsAndWidgets {
     }
   }
 
+  //name input field
+  Widget nameInputFiled(TextEditingController controller) {
+    return TextFormField(
+      textInputAction: TextInputAction.next,
+      controller: controller,
+      decoration: InputDecoration(
+          hintText: "John Doe",
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Color(0xFFEDF1F3),
+                width: 2,
+              )
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                  color: Color(0xFFEDF1F3),
+                  width: 2
+              )
+          )
+      ),
+    );
+  }
+
+
+  //email input field
+  Widget emailInputFiled(TextEditingController controller){
+    return TextFormField(
+      controller: controller,
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+          hintText: "doivnv@gmail.com",
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Color(0xFFEDF1F3),
+                width: 2,
+              )
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                  color: Color(0xFFEDF1F3),
+                  width: 2
+              )
+          )
+      ),
+      validator: (value) {
+        if(value == null || value.trim().isEmpty) {
+          return "Please Enter Your Email";
+        }
+        if( !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$').hasMatch(value)) {
+          return "Please enter a valid email address";
+        }
+        return null;
+      },
+    );
+  }
+
+
   //password input field
   Widget passwordInputField({required TextEditingController controller, required bool isVisible, required VoidCallback onToggleVisibility}) {
     return TextFormField(
