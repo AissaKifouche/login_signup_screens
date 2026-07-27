@@ -31,15 +31,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
   }
 
   final _formKey = GlobalKey<FormState>();
-  void _submitForm(){
-    if(_formKey.currentState!.validate()){
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Processing Login..."),
-        ),
-      );
-    }
-  }
+
 
 
   @override
@@ -65,7 +57,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
           // all the other things
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(top: 60, ),
+              padding: EdgeInsets.only(top: 24, ),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -158,27 +150,8 @@ class _SignupScreen2State extends State<SignupScreen2> {
 
                             SizedBox(height: 5,),
 
-                            TextFormField(
-                              textInputAction: TextInputAction.next,
-                              controller: _nameController,
-                              decoration: InputDecoration(
-                                  hintText: "John Doe",
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
-                                        width: 2,
-                                      )
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFFEDF1F3),
-                                          width: 2
-                                      )
-                                  )
-                              ),
-                            ),
+                            //name input field
+                            FunctionsAndWidgets().nameInputFiled(_nameController),
 
                             SizedBox(height: 16,),
 
@@ -188,44 +161,13 @@ class _SignupScreen2State extends State<SignupScreen2> {
                               "Email",
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontWeight: FontWeight.w600,
-                                 fontSize: 18,
                                 ),
                               ),
 
                             SizedBox(height: 5,),
 
                             //the email input field
-                            TextFormField(
-                              controller: _emailController,
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: InputDecoration(
-                                  hintText: "doivnv@gmail.com",
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
-                                        width: 2,
-                                      )
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFFEDF1F3),
-                                          width: 2
-                                      )
-                                  )
-                              ),
-                              validator: (value) {
-                                if(value == null || value.trim().isEmpty) {
-                                  return "Please Enter Your Email";
-                                }
-                                if( !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$').hasMatch(value)) {
-                                  return "Please enter a valid email address";
-                                }
-                                return null;
-                              },
-                            ),
+                            FunctionsAndWidgets().emailInputFiled(_emailController),
 
                             SizedBox(height: 16,),
 
@@ -235,120 +177,55 @@ class _SignupScreen2State extends State<SignupScreen2> {
                               style: TextStyle(color: Colors.grey),
                             ),
 
-                            TextField(
-                              readOnly: true,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16
-                              ),
-                              controller: _birthDateController,
-                              onTap: () {
-                                FunctionsAndWidgets().selectDate(context, _birthDateController);
-                              },
-                              decoration: InputDecoration(
-                                  suffixIcon: Icon(Icons.calendar_month, color: Colors.grey,),
-                                  hintText: "DD/MM/YYYY",
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
-                                        width: 2,
-                                      )
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                          color: Color(0xFFEDF1F3),
-                                          width: 2
-                                      )
-                                  )
-                              ),
+                            FunctionsAndWidgets().dateInputField(context: context, controller: _birthDateController),
+
+                            SizedBox(height: 16,),
+
+                            //phone number input field
+                            Text(
+                              "Phone Number",
+                              style: TextStyle(color: Colors.grey),
                             ),
+                            SizedBox(height: 5,),
+                            FunctionsAndWidgets().phoneNumberInputField(_phoneNumberController),
+
+
+
+                            SizedBox(height: 16,),
 
                             //the password field
                             Text(
                               "Password",
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
                               ),
                             ),
 
                             SizedBox(height: 8,),
 
                             //the password input field
-                            TextFormField(
+                            FunctionsAndWidgets().passwordInputField(
                               controller: _passwordController,
-                              obscureText: isVisible,
-                              decoration: InputDecoration(
-                                  hintText: "****",
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
-                                        width: 2,
-                                      )
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
-                                        width: 2
-                                    ),
-                                  ),
-                                  suffixIcon: IconButton(
-                                    icon: isVisible? Icon(Icons.visibility_off): Icon(Icons.visibility),
-                                    color: Colors.grey,
-                                    onPressed: () {
-                                      setState(() {
-                                        isVisible = !isVisible;
-                                      });
-                                    },
-                                  )
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your password';
-                                }
-                                if (value.length < 6) {
-                                  return 'Password must be at least 6 characters';
-                                }
-                                return null;
-                              },
+                              isVisible: isVisible,
+                              onToggleVisibility: (){
+                                setState(() {
+                                  isVisible = !isVisible;
+                                });
+                              }
                             ),
 
 
 
                             SizedBox(height: 24,),
 
-                            ElevatedButton(
-                              onPressed: () {
-                                _submitForm();
-                              },
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blueAccent,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  elevation: 4
-                              ),
-                              child: SizedBox(
-                                height: 60,
-                                child: Center(
-                                  child: Text(
-                                    "Register",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22
-                                    ),
-                                  ),
-                                ),
-                              ),
+                            //the register button
+                            FunctionsAndWidgets().theMostUsedButton(
+                              formKey: _formKey,
+                              content: "Register",
+                              context: context,
                             ),
 
-                            SizedBox(height: 24,),
+
 
                           ],
                         ),
