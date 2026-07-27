@@ -49,4 +49,43 @@ class FunctionsAndWidgets {
       }
     }
   }
+
+  //password input field
+  Widget passwordInputField({required TextEditingController controller, required bool isVisible, required VoidCallback onToggleVisibility}) {
+    return TextFormField(
+      controller: controller,
+      obscureText: isVisible,
+      decoration: InputDecoration(
+          hintText: "****",
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Color(0xFFEDF1F3),
+                width: 2,
+              )
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+                color: Color(0xFFEDF1F3),
+                width: 2
+            ),
+          ),
+          suffixIcon: IconButton(
+            icon: isVisible? Icon(Icons.visibility_off): Icon(Icons.visibility),
+            color: Colors.grey,
+            onPressed: onToggleVisibility,
+          )
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your password';
+        }
+        if (value.length < 6) {
+          return 'Password must be at least 6 characters';
+        }
+        return null;
+      },
+    );
+  }
 }
