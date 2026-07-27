@@ -124,4 +124,39 @@ class FunctionsAndWidgets {
       ),
     );
   }
+
+
+  //the button
+  Widget theMostUsedButton({
+    required GlobalKey<FormState> formKey,
+    required BuildContext context,
+    required String content
+}){
+    return ElevatedButton(
+      onPressed: () {
+        submitForm(context: context, formKey: formKey);
+      },
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blueAccent,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10)
+          ),
+          elevation: 4
+      ),
+      child: SizedBox(
+        height: 60,
+        child: Center(
+          child: Text(
+            content,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 22
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 }
