@@ -52,8 +52,17 @@ class FunctionsAndWidgets {
   }
 
   //name input field
-  Widget nameInputFiled(TextEditingController controller) {
+  static Widget nameInputFiled(TextEditingController controller) {
     return TextFormField(
+      validator: (value) {
+        if (value == null || value.trim().isEmpty) {
+          return "Please enter your name";
+        }
+        if (value.trim().length < 2) {
+          return "Name is too short";
+        }
+        return null;
+      },
       textInputAction: TextInputAction.next,
       controller: controller,
       decoration: InputDecoration(
@@ -78,7 +87,7 @@ class FunctionsAndWidgets {
 
 
   //email input field
-  Widget emailInputFiled(TextEditingController controller){
+  static Widget emailInputFiled(TextEditingController controller){
     return TextFormField(
       controller: controller,
       keyboardType: TextInputType.emailAddress,
@@ -111,7 +120,8 @@ class FunctionsAndWidgets {
     );
   }
 
-  Widget phoneNumberInputField(TextEditingController controller){
+  //phone number
+  static Widget phoneNumberInputField(TextEditingController controller,){
     return InternationalPhoneNumberInput(
       onInputChanged: (PhoneNumber number) {
 
@@ -122,7 +132,7 @@ class FunctionsAndWidgets {
         leadingPadding: 12,
       ),
       ignoreBlank: false,
-      autoValidateMode: AutovalidateMode.disabled,
+      autoValidateMode: AutovalidateMode.onUserInteraction,
       initialValue: PhoneNumber(isoCode: 'GB'), // e.g. 'US', 'GB', etc.
       textFieldController: controller,
       formatInput: true,
@@ -144,7 +154,7 @@ class FunctionsAndWidgets {
 
 
   //password input field
-  Widget passwordInputField({required TextEditingController controller, required bool isVisible, required VoidCallback onToggleVisibility}) {
+  static Widget passwordInputField({required TextEditingController controller, required bool isVisible, required VoidCallback onToggleVisibility}) {
     return TextFormField(
       controller: controller,
       obscureText: isVisible,
@@ -183,11 +193,17 @@ class FunctionsAndWidgets {
   }
 
   //date input field
-  Widget dateInputField({
+  static Widget dateInputField({
     required BuildContext context,
     required TextEditingController controller,
 }) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty){
+          return "Please select a date";
+        }
+        return null;
+      },
       readOnly: true,
       style: TextStyle(
           color: Colors.black,
@@ -220,7 +236,7 @@ class FunctionsAndWidgets {
 
 
   //the button
-  Widget theMostUsedButton({
+  static Widget theMostUsedButton({
     required GlobalKey<FormState> formKey,
     required BuildContext context,
     required String content
