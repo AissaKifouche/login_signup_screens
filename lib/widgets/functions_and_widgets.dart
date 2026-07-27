@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class FunctionsAndWidgets {
 
   //shows a date selector
-  Future<void> selectDate (BuildContext context, dynamic birthDateController) async {
+  static Future<void> selectDate (BuildContext context, dynamic birthDateController) async {
     final DateTime? picked = await showDatePicker(context:  context,
         initialDate: DateTime.now(),
         firstDate: DateTime(1900),
@@ -27,6 +27,26 @@ class FunctionsAndWidgets {
 
     if (picked != null){
       birthDateController.text = "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
+    }
+  }
+
+  //submit function
+  static void submitForm({
+    required BuildContext context,
+    required GlobalKey<FormState> formKey,
+    VoidCallback? onSuccess,
+  }) {
+    if (formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("processing login ..."),
+        ),
+      );
+
+      // Trigger custom action after validation (e.g., API call or navigation)
+      if (onSuccess != null) {
+        onSuccess();
+      }
     }
   }
 }
