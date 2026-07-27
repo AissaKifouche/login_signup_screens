@@ -88,4 +88,40 @@ class FunctionsAndWidgets {
       },
     );
   }
+
+  //date input field
+  Widget dateInputField({
+    required BuildContext context,
+    required TextEditingController controller,
+}) {
+    return TextField(
+      readOnly: true,
+      style: TextStyle(
+          color: Colors.black,
+          fontSize: 16
+      ),
+      controller: controller,
+      onTap: () {
+        selectDate(context, controller);
+      },
+      decoration: InputDecoration(
+          suffixIcon: Icon(Icons.calendar_month, color: Colors.grey,),
+          hintText: "DD/MM/YYYY",
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: Color(0xFFEDF1F3),
+                width: 2,
+              )
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                  color: Color(0xFFEDF1F3),
+                  width: 2
+              )
+          )
+      ),
+    );
+  }
 }
