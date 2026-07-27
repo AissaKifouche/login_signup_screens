@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 
 
@@ -107,6 +108,37 @@ class FunctionsAndWidgets {
         }
         return null;
       },
+    );
+  }
+
+  Widget phoneNumberInputField(TextEditingController controller){
+    return InternationalPhoneNumberInput(
+      onInputChanged: (PhoneNumber number) {
+
+      },
+      selectorConfig: SelectorConfig(
+        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+        setSelectorButtonAsPrefixIcon: true,
+        leadingPadding: 12,
+      ),
+      ignoreBlank: false,
+      autoValidateMode: AutovalidateMode.disabled,
+      initialValue: PhoneNumber(isoCode: 'GB'), // e.g. 'US', 'GB', etc.
+      textFieldController: controller,
+      formatInput: true,
+      keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
+      inputDecoration: InputDecoration(
+        hintText: "(454) 726-0592",
+        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Color(0xFFEDF1F3), width: 2),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Color(0xFFEDF1F3), width: 2),
+        ),
+      ),
     );
   }
 
