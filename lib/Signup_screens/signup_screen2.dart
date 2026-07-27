@@ -151,7 +151,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                             SizedBox(height: 5,),
 
                             //name input field
-                            FunctionsAndWidgets().nameInputFiled(_nameController),
+                            FunctionsAndWidgets.nameInputFiled(_nameController),
 
                             SizedBox(height: 16,),
 
@@ -167,7 +167,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                             SizedBox(height: 5,),
 
                             //the email input field
-                            FunctionsAndWidgets().emailInputFiled(_emailController),
+                            FunctionsAndWidgets.emailInputFiled(_emailController),
 
                             SizedBox(height: 16,),
 
@@ -177,7 +177,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                               style: TextStyle(color: Colors.grey),
                             ),
 
-                            FunctionsAndWidgets().dateInputField(context: context, controller: _birthDateController),
+                            FunctionsAndWidgets.dateInputField(context: context, controller: _birthDateController),
 
                             SizedBox(height: 16,),
 
@@ -187,7 +187,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                               style: TextStyle(color: Colors.grey),
                             ),
                             SizedBox(height: 5,),
-                            FunctionsAndWidgets().phoneNumberInputField(_phoneNumberController),
+                            FunctionsAndWidgets.phoneNumberInputField(_phoneNumberController),
 
 
 
@@ -204,7 +204,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                             SizedBox(height: 8,),
 
                             //the password input field
-                            FunctionsAndWidgets().passwordInputField(
+                            FunctionsAndWidgets.passwordInputField(
                               controller: _passwordController,
                               isVisible: isVisible,
                               onToggleVisibility: (){
@@ -219,7 +219,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                             SizedBox(height: 24,),
 
                             //the register button
-                            FunctionsAndWidgets().theMostUsedButton(
+                            FunctionsAndWidgets.theMostUsedButton(
                               formKey: _formKey,
                               content: "Register",
                               context: context,
