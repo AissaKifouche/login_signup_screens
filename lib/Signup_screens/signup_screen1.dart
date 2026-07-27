@@ -60,7 +60,7 @@ class _SignupScreen1State extends State<SignupScreen1> {
     );
 
     if (picked != null){
-      _birthDateController.text = "${picked.year} - ${picked.month.toString().padLeft(2, '0')} - ${picked.day.toString().padLeft(2, '0')}";
+      _birthDateController.text = "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
     }
   }
 
@@ -202,7 +202,7 @@ class _SignupScreen1State extends State<SignupScreen1> {
                   onTap: () => _selectDate(context),
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.calendar_month, color: Colors.grey,),
-                      hintText: "doivnv@gmail.com",
+                      hintText: "DD/MM/YYYY",
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
@@ -263,7 +263,7 @@ class _SignupScreen1State extends State<SignupScreen1> {
 
                 SizedBox(height: 16,),
           
-                //passwor input field
+                //password input field
                 Text(
                   "Password",
                   style: TextStyle(color: Colors.grey),

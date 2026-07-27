@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:login_signup/Signup_screens/signup_screen2.dart';
 
 class LoginScreen2 extends StatefulWidget {
   const LoginScreen2({super.key});
@@ -60,9 +61,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
 
           // all the other things
           SafeArea(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.only(top: 60, bottom: 105),
+            child: Padding(
+              padding: EdgeInsets.only(top: 60, ),
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -82,9 +83,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                         )
                       ],
                     ),
-                    
+                
                     SizedBox(height: 34,),
-                    
+                
                     //the white container
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -96,7 +97,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                         ),
                         child: Column(
                           children: [
-
+                
                             //the login title
                             Text(
                               "Login",
@@ -106,7 +107,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 fontSize: 34
                               ),
                             ),
-
+                
                             //the row for dont have an account ..
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -117,10 +118,15 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                     color: Colors.grey
                                   ),
                                 ),
-
+                
                                 TextButton(
                                   onPressed: (){
-
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => SignupScreen2(),
+                                      )
+                                    );
                                   },
                                   child: Text(
                                     "Sign Up",
@@ -131,12 +137,12 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 )
                               ],
                             ),
-
+                
                             SizedBox(height: 24,),
-
-
+                
+                
                             //the email input field
-
+                
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -148,9 +154,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 ),
                               ),
                             ),
-
+                
                             SizedBox(height: 8,),
-
+                
                             //the email input field
                             TextFormField(
                               controller: _emailController,
@@ -182,9 +188,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 return null;
                               },
                             ),
-
+                
                             SizedBox(height: 16,),
-
+                
                             //the password field
                             Align(
                               alignment: Alignment.centerLeft,
@@ -197,9 +203,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 ),
                               ),
                             ),
-
+                
                             SizedBox(height: 8,),
-
+                
                             //the password input field
                             TextFormField(
                               controller: _passwordController,
@@ -240,9 +246,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 return null;
                               },
                             ),
-
+                
                             SizedBox(height: 16,),
-
+                
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -261,7 +267,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                         borderRadius: BorderRadius.circular(3)
                                       )
                                     ),
-
+                
                                     Text(
                                       "Remember me",
                                       style: TextStyle(
@@ -270,23 +276,23 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                     )
                                   ],
                                 ),
-
+                
                                 TextButton(
                                   onPressed: () {
-
+                
                                   },
                                   child: Text(
                                     "Forgot Password ?",
                                     style: TextStyle(color: Colors.blueAccent),
                                   ),
                                 ),
-
+                
                               ],
                             ),
-
-
+                
+                
                             SizedBox(height: 24,),
-
+                
                             ElevatedButton(
                               onPressed: () {
                                 _submitForm();
@@ -309,9 +315,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 ),
                               ),
                             ),
-
+                
                             SizedBox(height: 24,),
-
+                
                             // the or divider
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -322,18 +328,18 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                     thickness: 2,
                                   ),
                                 ),
-
+                
                                 SizedBox(width: 8,),
-
+                
                                 Text(
                                   "Or",
                                   style: TextStyle(
                                       color: Colors.grey
                                   ),
                                 ),
-
+                
                                 SizedBox(width: 8,),
-
+                
                                 Expanded(
                                   child: Divider(
                                     color: Color(0xFFEDF1F3),
@@ -342,13 +348,13 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 ),
                               ],
                             ),
-
+                
                             SizedBox(height: 18,),
-
+                
                             //the google method button
                             ElevatedButton(
                               onPressed: () {
-
+                
                               },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
@@ -377,13 +383,13 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 ),
                               ),
                             ),
-
+                
                             SizedBox(height: 10,),
-
+                
                             // the facebook method
                             ElevatedButton(
                               onPressed: () {
-
+                
                               },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
