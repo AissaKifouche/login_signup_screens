@@ -1,9 +1,9 @@
-import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:login_signup/Signup_screens/signup_screen7.dart';
 
 class LoginScreen7 extends StatefulWidget {
   const LoginScreen7({super.key});
@@ -15,7 +15,7 @@ class LoginScreen7 extends StatefulWidget {
 class _LoginScreen7State extends State<LoginScreen7> {
 
 
-  int isSelectedIndex = 0;
+
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -180,20 +180,20 @@ class _LoginScreen7State extends State<LoginScreen7> {
                                   child: GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        isSelectedIndex = 0;
+
                                       });
                                     },
                                     child: AnimatedContainer(
                                       duration: Duration(milliseconds: 100),
                                       decoration: BoxDecoration(
-                                        color: (isSelectedIndex == 0) ? Colors.white : Colors.transparent,
+                                        color: Colors.white,
                                         borderRadius: BorderRadius.circular(10)
                                       ),
                                       alignment: Alignment.center,
                                       child: Text(
                                         "Log in",
                                         style: TextStyle(
-                                          color: (isSelectedIndex == 0) ? Colors.black : Colors.grey[800],
+                                          color:  Colors.black,
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold
                                         ),
@@ -207,20 +207,24 @@ class _LoginScreen7State extends State<LoginScreen7> {
                                   child: GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        isSelectedIndex = 1;
+
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => SignupScreen7()),
+                                        );
                                       });
                                     },
                                     child: AnimatedContainer(
                                       duration: Duration(milliseconds: 100),
                                       decoration: BoxDecoration(
-                                        color: (isSelectedIndex == 1) ? Colors.white : Colors.transparent,
+                                        color: Colors.transparent,
                                         borderRadius: BorderRadius.circular(10)
                                       ),
                                       alignment: Alignment.center,
                                       child: Text(
                                         "Sign up",
                                         style: TextStyle(
-                                            color: (isSelectedIndex == 1) ? Colors.black : Colors.grey[800],
+                                            color: Colors.grey[800],
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold
                                         ),

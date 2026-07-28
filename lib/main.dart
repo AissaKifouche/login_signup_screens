@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //home: LoginScreen1(),
-      home: LoginScreen2(),
-      //home: LoginScreen7(),
+      //home: LoginScreen2(),
+      home: LoginScreen7(),
       //home: LoginScreen10(),
     );
   }
