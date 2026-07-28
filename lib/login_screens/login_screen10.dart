@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:login_signup/Signup_screens/signup_screen10.dart';
 
 class LoginScreen10 extends StatefulWidget {
   const LoginScreen10({super.key});
@@ -391,7 +392,12 @@ class _LoginScreen10State extends State<LoginScreen10> {
                           
                                       TextButton(
                                         onPressed: (){
-                          
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => SignupScreen10(),
+                                            )
+                                          );
                                         },
                                         child: Text(
                                           "Sign Up",

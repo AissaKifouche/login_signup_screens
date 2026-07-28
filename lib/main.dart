@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //home: LoginScreen1(),
       //home: LoginScreen2(),
-      home: LoginScreen7(),
-      //home: LoginScreen10(),
+      //home: LoginScreen7(),
+      home: LoginScreen10(),
     );
   }
 }

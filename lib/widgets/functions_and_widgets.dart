@@ -66,6 +66,8 @@ class FunctionsAndWidgets {
       textInputAction: TextInputAction.next,
       controller: controller,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
           hintText: "John Doe",
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -92,6 +94,8 @@ class FunctionsAndWidgets {
       controller: controller,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
           hintText: "doivnv@gmail.com",
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -122,31 +126,37 @@ class FunctionsAndWidgets {
 
   //phone number
   static Widget phoneNumberInputField(TextEditingController controller,){
-    return InternationalPhoneNumberInput(
-      onInputChanged: (PhoneNumber number) {
-
-      },
-      selectorConfig: SelectorConfig(
-        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-        setSelectorButtonAsPrefixIcon: true,
-        leadingPadding: 12,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10)
       ),
-      ignoreBlank: false,
-      autoValidateMode: AutovalidateMode.onUserInteraction,
-      initialValue: PhoneNumber(isoCode: 'GB'), // e.g. 'US', 'GB', etc.
-      textFieldController: controller,
-      formatInput: true,
-      keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
-      inputDecoration: InputDecoration(
-        hintText: "(454) 726-0592",
-        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFFEDF1F3), width: 2),
+      child: InternationalPhoneNumberInput(
+        onInputChanged: (PhoneNumber number) {
+
+        },
+        selectorConfig: SelectorConfig(
+          selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+          setSelectorButtonAsPrefixIcon: true,
+          leadingPadding: 12,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFFEDF1F3), width: 2),
+        ignoreBlank: false,
+        autoValidateMode: AutovalidateMode.onUserInteraction,
+        initialValue: PhoneNumber(isoCode: 'GB'), // e.g. 'US', 'GB', etc.
+        textFieldController: controller,
+        formatInput: true,
+        keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: false),
+        inputDecoration: InputDecoration(
+          hintText: "(454) 726-0592",
+          contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Color(0xFFEDF1F3), width: 2),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: Color(0xFFEDF1F3), width: 2),
+          ),
         ),
       ),
     );
@@ -159,6 +169,8 @@ class FunctionsAndWidgets {
       controller: controller,
       obscureText: isVisible,
       decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
           hintText: "****",
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -214,6 +226,8 @@ class FunctionsAndWidgets {
         selectDate(context, controller);
       },
       decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
           suffixIcon: Icon(Icons.calendar_month, color: Colors.grey,),
           hintText: "DD/MM/YYYY",
           enabledBorder: OutlineInputBorder(
